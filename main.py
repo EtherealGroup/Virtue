@@ -1,9 +1,12 @@
 import discord
 import os
+from pytz import timezone
+from datetime import datetime
+from datetime import date
 from discord import app_commands
 from discord.ext import commands
 
-TOKEN = "YOUR TOKEN HERE"
+TOKEN = "YOUR TOKEN HERE"  
 
 intents = discord.Intents.all()
 intents.members = True
@@ -21,6 +24,9 @@ async def on_ready():
 
 @client.tree.command(name="ping", description="Displays the latency of the bot (in ms)")
 async def ping(interaction: discord.Interaction):
-  await interaction.response.send_message(f"**Pong!**\nLatency:{round(client.latency * 1000)}ms")
+  pingEmbed = discord.Embed(color=0x26931b, timestamp=datetime.now())
+  pingEmbed.add_field(name="**Pong!**",value=f"Latency: {round(client.latency * 1000)}ms",inline=False)
+  pingEmbed.set_footer(text=f"Requested by {interaction.user.name}", icon_url=interaction.user.display_avatar)
+  await interaction.response.send_message(embed=pingEmbed)
 
 client.run(TOKEN)
