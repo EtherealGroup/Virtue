@@ -19,4 +19,9 @@ async def on_ready():
   except Exception as e:
     print(e)
 
+@client.tree.command(name="ping")
+@app_commands.describe()
+async def ping(interaction: discord.Interaction):
+  await interaction.response.send_message(f"**Pong!**\nLatency:{round(client.latency * 1000)}ms")
+
 client.run(TOKEN)
