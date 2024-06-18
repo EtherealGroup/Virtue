@@ -1,4 +1,5 @@
 import discord
+from dotenv import load_dotenv
 import os
 from pytz import timezone
 from datetime import datetime
@@ -6,7 +7,9 @@ from datetime import date
 from discord import app_commands
 from discord.ext import commands
 
-TOKEN = "YOUR TOKEN HERE"  
+load_dotenv()
+
+TOKEN = os.getenv("BOT_TOKEN")  
 
 intents = discord.Intents.all()
 intents.members = True
