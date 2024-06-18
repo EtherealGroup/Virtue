@@ -35,7 +35,7 @@ async def ping(interaction: discord.Interaction):
 @client.tree.command(name = "info", description = "Information about the bot, and the source code")
 async def info(interaction: discord.Interaction):
   soEmbed = discord.Embed(title="Information", color=0x26931b)
-  soEmbed.add_field(name="Ethereal Group", value = "We are Ethereal Group, the developers of this discord bot. We're focused on making open-source and high quality discord bots.\n Virtue is completely free and open-source!", inline = False)
+  soEmbed.add_field(name="Ethereal Group", value = "We are Ethereal Group, the developers of this discord bot. We're focused on making open-source and high quality discord bots", inline = False)
   soEmbed.add_field(name="Source code", value="https://www.github.com/EtherealGroup/Virtue", inline=False)
   soEmbed.set_thumbnail(url = "https://avatars.githubusercontent.com/u/173092938?s=200&v=4")
   soEmbed.set_footer(text=f"Requested by {interaction.user.name}", icon_url=interaction.user.display_avatar)
