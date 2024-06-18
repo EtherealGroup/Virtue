@@ -25,6 +25,13 @@ async def on_ready():
   except Exception as e:
     print(e)
 
+class InfoMenu(discord.ui.View):
+  def __init__(self):
+    super().__init__()
+    self.value = None
+    self.add_item(discord.ui.Button(label="Source Code", url = "https://github.com/EtherealGroup/Virtue", emoji="<githubwhite:1252766253777420349>"))
+  
+
 @client.tree.command(name="ping", description="Displays the latency of the bot (in ms)")
 async def ping(interaction: discord.Interaction):
   pingEmbed = discord.Embed(color=0x26931b, timestamp=datetime.now())
@@ -34,11 +41,11 @@ async def ping(interaction: discord.Interaction):
 
 @client.tree.command(name = "info", description = "Information about the bot, and the source code")
 async def info(interaction: discord.Interaction):
+  view = InfoMenu()
   soEmbed = discord.Embed(title="Information", color=0x26931b)
   soEmbed.add_field(name="Ethereal Group", value = "We are Ethereal Group, the developers of this discord bot. We're focused on making open-source and high quality discord bots", inline = False)
-  soEmbed.add_field(name="Source code", value="https://www.github.com/EtherealGroup/Virtue", inline=False)
   soEmbed.set_thumbnail(url = "https://avatars.githubusercontent.com/u/173092938?s=200&v=4")
   soEmbed.set_footer(text=f"Requested by {interaction.user.name}", icon_url=interaction.user.display_avatar)
-  await interaction.response.send_message(embed=soEmbed)
+  await interaction.response.send_message(embed=soEmbed, view=view)
 
 client.run(TOKEN)
