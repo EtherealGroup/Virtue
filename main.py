@@ -42,10 +42,11 @@ async def ping(interaction: discord.Interaction):
 @client.tree.command(name = "info", description = "Information about the bot, and the source code")
 async def info(interaction: discord.Interaction):
   view = InfoMenu()
-  soEmbed = discord.Embed(title="Information", color=0x26931b)
-  soEmbed.add_field(name="Ethereal Group", value = "We are Ethereal Group, the developers of this discord bot. We're focused on making open-source and high quality discord bots", inline = False)
-  soEmbed.set_thumbnail(url = "https://avatars.githubusercontent.com/u/173092938?s=200&v=4")
-  soEmbed.set_footer(text=f"Requested by {interaction.user.name}", icon_url=interaction.user.display_avatar)
-  await interaction.response.send_message(embed=soEmbed, view=view)
+  infoEmbed = discord.Embed(title="Information", color=0x26931b)
+  infoEmbed.add_field(name="About Virtue", value = "Virtue is a work in progress discord bot that will fetch wallpapers from various sources.", inline = False)
+  infoEmbed.add_field(name="Ethereal Group", value = "We are Ethereal Group, the developers of this discord bot. We're focused on making open-source and high quality discord bots", inline = False)
+  infoEmbed.set_thumbnail(url = "https://avatars.githubusercontent.com/u/173092938?s=200&v=4")
+  infoEmbed.set_footer(text=f"Requested by {interaction.user.name}", icon_url=interaction.user.display_avatar)
+  await interaction.response.send_message(embed=infoEmbed, view=view)
 
 client.run(TOKEN)
