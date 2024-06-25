@@ -41,8 +41,8 @@ async def ping(interaction: discord.Interaction):
   difference = int(currentTime - startTime)
   upTime = str(timedelta(seconds=difference))
 
-  pingEmbed = discord.Embed(color=0x26931b, timestamp=datetime.now())
-  pingEmbed.add_field(name="**Pong!**", value=f"Latency: {round(client.latency * 1000)}ms", inline=False)
+  pingEmbed = discord.Embed(title="Pong!", color=0x26931b, timestamp=datetime.now())
+  pingEmbed.add_field(name="Latency", value=f"{round(client.latency * 1000)}ms", inline=False)
   pingEmbed.add_field(name="Uptime", value = upTime, inline = False)
   pingEmbed.set_footer(text=f"Requested by {interaction.user.name}", icon_url=interaction.user.display_avatar)
   await interaction.response.send_message(embed=pingEmbed)
