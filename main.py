@@ -35,7 +35,7 @@ class InfoMenu(discord.ui.View):
     self.add_item(discord.ui.Button(label="Source Code", url = "https://github.com/EtherealGroup/Virtue", emoji="<githubwhite:1252766253777420349>"))
   
 
-@client.tree.command(name="ping", description="Displays the latency of the bot (in ms)")
+@client.tree.command(name="ping", description="Displays the latency and uptime of the bot")
 async def ping(interaction: discord.Interaction):
   currentTime = time.time()
   difference = int(currentTime - startTime)
